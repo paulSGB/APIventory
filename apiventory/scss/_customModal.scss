@@ -1,0 +1,63 @@
+// On surcharge les animations .modal - Bs pour afficher les fade dans Angular / PSE
+.modal {
+    transition: .5s ease-out;
+	animation-name: slideDown;
+	animation-duration: .5s;
+	animation-fill-mode: both;
+	animation-delay: 0.2s;
+	visibility: visible;
+	&.custom {
+		@media #{$min-992} {
+			animation-name: slideRight;
+			&.fade {
+			.modal-dialog {
+			    position: fixed;
+			    margin: auto;
+			    width: 100%;
+			    height: 100%;
+			    transform: translate3d(0%, 0, 0);
+			    right: -100%;
+			    transition: .5s ease-out;
+			  }
+			}
+			&.show {
+			.modal-dialog {
+			    right:0;
+			  }
+			}
+			.modal-dialog {
+		    	margin: 0;
+			}
+			.modal-content {
+				height: 100vh;
+				justify-content: space-between;
+				border-radius:0;
+				box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+			}
+			.modal-body {
+		    	overflow-y:auto;
+			}
+		}
+    .modal-header {
+  		border-radius: 0;
+  		padding: 2rem 1rem;
+  	}
+	}
+	.modal-footer {
+	    display: flex;
+	    align-items: center;
+	    justify-content: flex-end;
+	    padding: 1.875rem;
+	    border-top: 0 solid #e5e5e5;
+	    border-bottom-right-radius: 0.3rem;
+	    border-bottom-left-radius: 0.3rem;
+	}
+	.close {
+		margin:0;
+	}
+	.d-inline-block{
+		&.text-truncate {
+			max-width: 20rem;
+		}
+	}
+}

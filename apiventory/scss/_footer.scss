@@ -1,0 +1,53 @@
+footer {
+	font-size: .9em;
+	opacity: .6;
+
+	>ul>li {
+		border-right:1px solid rgba(0,0,0,.15);
+		padding: 0 1em;
+	}
+	li:last-child {
+		border: none;
+	}
+
+	#topPage {
+		@media #{$min-992} {
+			transform: translate(-100%);
+			opacity: 0;
+			transition: .25s ease;
+		}
+		svg {
+			transform: rotate(0);
+			@media #{$min-1320} {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+	@media #{$min-1320} {
+	    position: fixed;
+	    top: 0;
+	    top: 50%;
+	    z-index: 1;
+	    transform: translateX(-50%) rotate(90deg);
+	    left: calc(100% - 2em);
+	    width: 100%;
+	}
+  @media (max-width: 1536px) and (min-width: 1320px) {
+    font-size: 60%;
+    .fullBrand .logo {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+.hide-nav-bar {
+	#main-search,
+	#breadCrum {
+		transform:translateY(-100%);
+	}
+	 #topPage {
+		transform: translate(0);
+		opacity: 1;
+	}
+}

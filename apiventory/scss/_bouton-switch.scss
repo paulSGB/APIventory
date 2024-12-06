@@ -1,0 +1,82 @@
+// bouton switch
+
+.btn-toggle {
+	margin: 0 4rem;
+	padding: 0;
+	position: relative;
+	border: none;
+	height: 1.5rem;
+	width: 3rem;
+	border-radius: 1.5rem;
+	color: #6b7381;
+	background: #bdc1c8;
+
+	&.active {
+		background-color: #29b5a8;
+	}
+	&:disabled {
+		background-color: #dfe0e0;
+	}
+	&.btn-xs {
+	    margin: 0;
+	    padding: 0;
+	    position: relative;
+	    border: none;
+	    height: 1rem;
+	    width: 2rem;
+	    border-radius: 1rem;
+
+		>.handle {
+		    position: absolute;
+		    top: 0.125rem;
+		    left: 0.125rem;
+		    width: 0.75rem;
+		    height: 0.75rem;
+		    border-radius: 0.75rem;
+		    background: #fff;
+		    transition: left 0.25s;
+		}
+	    &.active {
+	    	transition: background-color 0.25s;
+			> .handle {
+			    left: 1.125rem;
+			    transition: left 0.25s;
+			}
+	    }
+	}
+
+}
+.btn-toggle:focus,
+.btn-toggle.focus,
+.btn-toggle:focus.active,
+.btn-toggle.focus.active,
+.btn-toggle.btn-xs:focus,
+.btn-toggle.btn-xs.focus,
+.btn-toggle.btn-xs:focus.active,
+.btn-toggle.btn-xs.focus.active {
+    outline: none;
+}
+
+.btn-group-toggle {
+  position: relative;
+  background-color: #f8fafd;
+  padding: 0.25rem 0.25rem;
+  border-radius: 0.3125rem;
+	display: inline-flex;
+	.btn {
+		cursor: pointer;
+	  color: #51596c;
+	  padding: 0.5rem 0.875rem;
+	  border-radius: 0.3125rem;
+		&.active {
+			color: #ffffff;
+	    background-color: #007bfe;
+			border-radius: 0.3125rem;
+	    box-shadow: 0 0.1875rem 0.375rem 0 rgba(140, 152, 164, 0.25);
+		}
+	}
+	>.btn:not(:last-child):not(.dropdown-toggle) {
+	    border-top-right-radius: 0.3125rem;
+	    border-bottom-right-radius: 0.3125rem;
+	}
+}

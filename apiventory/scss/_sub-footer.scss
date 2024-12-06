@@ -1,0 +1,23 @@
+.subFooter {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background: $customDarkBlue;
+	display: flex;
+	width: 100%;
+	padding: 1em;
+	justify-content: space-between;
+	box-shadow: 0 -0.2rem 1rem rgba(0,0,0,.15);
+	@media #{$min-992} {
+		width: calc(75% - 78px + 15px);
+	}
+}
+.btn-green {
+  background-color: rgba($customBlue,0);
+  border-color: rgba($customBlue,0);
+  color:#fff!important;
+	&:hover {
+		background-color: rgba($customBlue,.5);
+	  border-color: rgba($customBlue,.5);
+	}
+}

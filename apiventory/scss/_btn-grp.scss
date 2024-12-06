@@ -1,0 +1,33 @@
+.btn-group.custom {
+  >.btn {
+    font-size: 0.875rem;
+    color: rgba(0,0,0,.8);
+  }
+  &:not(:last-child) {
+    >.btn {
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: 10rem;
+      margin: 2px;
+      @media #{$min-992} {
+        margin: 0.25rem;
+        padding: 0.5rem 1rem;
+      }
+      span {
+        font-weight: bold;
+        font-size: 85%;
+        margin-left: .25rem;
+        padding: .1em .6em;
+        border-radius: 10rem;
+      }
+      &[aria-expanded=true] {
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+      }
+    }
+  }
+  &:last-child {
+    >.btn {
+      font-size: 0.75rem;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,262 @@
+
+.sidebar {
+	position: fixed;
+	display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	background-color: $light;
+	transition: all .3s ease-in-out;
+	width: 84px;
+	.navbar-brand{
+		background-color: $light;
+		height:auto;
+		padding:10px 0;
+		img {
+			display: block;
+			margin:0 auto;
+			height: 60px;
+			min-height: 60px;
+			width: 60px;
+			min-width: 60px;
+			padding: .6em;
+			transition:0.3s ease-in-out;
+		 	margin: 0 30px 0 10px;
+		}
+		@media only screen and (max-width: 991px) {
+			position: relative;
+			top: 0;
+			margin: 0;
+			left: 0;
+			width: 100%;
+			display:flex;
+			justify-content:center;
+			img {
+				transition:0.3s ease-in-out;
+				margin: 0 10px;
+			}
+		}
+	}
+	a{
+		color: #5f5f5f;
+	}
+	.nav {
+		overflow: hidden;
+		a  {
+			position: relative;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+
+			@media #{$min-992} {
+				width: 300px;
+			}
+			* {
+				position: relative;
+				z-index: 1;
+			}
+			svg {
+				position: relative;
+				transition: all .3s ease-in-out;
+				margin:0 30px 0 10px;
+			}
+			&:after {
+				display: block;
+				@include pseudoEl;
+				top: 0;
+				z-index: 0;
+				bottom: 0;
+				margin: auto;
+				border-radius: 50%;
+				background: transparent;
+				height: 0;
+				width: 0;
+				transition: all .3s ease-in-out;
+				background-color: $customBtn;
+				box-shadow:0 0 0 0 $customBtn;
+        left: 0;
+        width: 0;
+        border-radius: 0;
+        height: 100%;
+			}
+			.badge {
+				position: absolute;
+				top: 1em;
+				left: 3.5em;
+				z-index: 2;
+				opacity:1;
+				transition: 0.3s ease;
+			}
+		}
+	}
+	@media #{$min-992} {
+ 		z-index: 1031;
+		overflow: hidden;
+		&.started {
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+		}
+	}
+	@media #{$max-991} {
+		transform: translateX(-100%);
+		width: 100%;
+		align-items: center;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		@media #{$min-992} {
+			width: 300px;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+		}
+	}
+	&.navigation-is-open {
+		.navbar-brand img {
+			margin: 0 10px;
+		}
+	}
+	&:hover {
+		@media #{$min-992} {
+			ul a svg {
+				margin:0 20px 0 10px;
+			}
+		}
+	}
+	@media #{$maxh-500} {
+		.nav{
+			&.flex-column {
+				flex-direction:inherit!important;
+			}
+			a {
+				padding:.5rem 1rem;
+				svg {
+					margin:0;
+				}
+			}
+		}
+	}
+} // fin de sidebar
+
+#toggle,
+.toggle {
+	padding: 0;
+	display: block;
+	height: 80px;
+	width: 80px;
+	background: $light;
+	top: 0;
+	z-index: 101;
+	left: 0px;
+	cursor: pointer;
+	position: fixed;
+	transition: .25s ease-out;
+}
+#toggle,.toggle {
+	&:after,
+	&:before {
+		@include pseudoEl;
+		width: 25px;
+		height: 2px;
+		border-radius: 4px;
+		left: 0;
+		right: 0;
+		transition: .25s ease-out;
+		margin: auto;
+		background:$customTheme;
+	}
+	&:before {
+		top:35px;
+	}
+	&:after {
+		top:45px;
+	}
+}
+.toggle {
+	&:before,
+	&:after {
+		top:0;
+		bottom:0;
+	}
+	&:before {
+		transform: rotate(-135deg);
+	}
+	&:after {
+		transform: rotate(135deg);
+	}
+}
+
+.is-open {
+	overflow: hidden;
+	#toggle {
+		&:before,
+		&:after {
+			top: 50%;
+			width: 25px;
+		}
+		&:before {
+			transform: rotate(-135deg);
+		}
+		&:after {
+			transform: rotate(135deg);
+		}
+		@media #{$min-992} {
+	 		display:none;
+		}
+		@media #{$max-991} {
+			.navbar-toggler {
+				opacity: 0;
+			}
+		}
+	}
+	.sidebar {
+		@media #{$max-991} {
+			transform: translateX(0);
+		}
+	}
+}
+.logo {
+	height: 70px;
+	width: 70px;
+	background: #e6e6e6;
+	border-radius: 50%;
+	padding: 1em;
+	margin:1em;
+}
+
+body:not(.is-open) {
+	@media #{$max-991} {
+		.sidebar .navbar-brand {
+			left: 100%;
+		}
+	}
+}
+.user {
+	padding:1em 0;
+	overflow: hidden;
+
+	svg,
+	span.bg-cover {
+		@include userIcon;
+		margin: 0 17px;
+	 
+	}
+	a {
+		@media #{$min-992} {
+			width: 300px;
+		}
+		display: block;
+		padding-top: 5px;
+		color: rgba(0,0,0,.4);
+		font-size: .9em;
+
+		&:hover {
+			color: rgba(0,0,0,1);
+		}
+	}
+	li {
+		@media #{$max-991} {
+			margin:auto;
+		}
+	}
+}

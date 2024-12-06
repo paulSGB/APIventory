@@ -1,0 +1,123 @@
+//background
+$light:#fff;
+$light-grey:#027b83;
+
+//customs colors
+$customTheme :#f5af02;
+$customBtn :#008f98;
+$customBlue :#007bff;
+$customDarkBlue :#194069;
+$customYell :#FF9800;
+$customDark :#2d333b;
+
+$box-shadow: 0 .5rem 1rem rgba($customDarkBlue, 0.25);
+//height
+$h100 :100vh;
+
+
+//RWD @media #{$min-valeur}
+$min-1320: "only screen and (min-width: 1320px)";
+$min-1200: "only screen and (min-width: 1200px)";
+$min-992: "only screen and (min-width: 992px)";
+$max-991: "only screen and (max-width: 991px)";
+$max-577: "only screen and (max-width: 577px)";
+$maxh-500: "only screen and (max-height: 500px)";
+
+//@include pseudoEl
+@mixin pseudoEl {
+	position:absolute;
+	content:"";
+}
+@mixin bg-cover {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@mixin userIcon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: #e6e6e6;
+}
+
+.start-effect {
+	>.smooth {
+		animation-name: fadeDown;
+		animation-duration: .7s;
+		animation-fill-mode: both;
+	}
+}
+@keyframes fadeDown {
+	0% {opacity: 0; transform: translateY(-50px); }
+	100% {opacity: 1; transform: translateY(0); }
+}
+//
+//	GESTION workflow
+//client
+
+.customGreen {
+	border-top: 4px solid $customTheme;
+}
+.fillGreen {
+	fill:$customTheme;
+}
+//notaire
+.customYell {
+	border-top: 4px solid $customYell;
+}
+.fillYell {
+	fill:$customYell;
+}
+//fournisseur
+.customBlue {
+	border-top: 4px solid $customBlue;
+}
+.fillBlue {
+	fill:$customBlue;
+}
+.mainSidebar {
+	.customGreen,.customYell,.customBlue {
+		border-top: none;
+		position: relative;
+		&:after {
+			@include pseudoEl;
+			top:0;
+			right:calc(100% + 1rem + 4px);
+			height:100%;
+			width:4px;
+			border-radius: 2rem;
+		}
+	}
+	.customGreen {
+		&:after {
+			background-color: $customTheme;
+		}
+	}
+	.customYell {
+		&:after {
+			background-color: $customYell;
+		}
+	}
+	.customBlue {
+		&:after {
+			background-color: $customBlue;
+		}
+	}
+}
+// gestio ndes RIB secondaires
+.list-group-item.customBlue {
+	border-top: 1px solid rgba(0,0,0,.125);
+	border-left: 4px solid $customBlue;
+	background-color: #f3f6fb;
+}
+.secondary,.secondary .text-muted {
+  color: rgba(0,0,0,.2)!important;
+}
+// gestio ndes RIB secondaires
+$colours-list: #FFC772 #FF977A #8FDFDA #8dc99b #c793c3;
+$colours-names: "yellowLight" "orangeLight" "tealLight" "greenLight" "purpleLight";

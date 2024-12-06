@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap');
+@import '_variable.scss';
+//
+// Model project Gestion tiers
+
+html, body {
+	font-family: 'Montserrat', sans-serif;
+	font-weight:300;
+	background-color: $light-grey;
+}
+html, body, h1, h2, h3, h4, a,.btn {
+	font-weight: 300;
+}
+// custom reset css
+
+ul, ol {
+	list-style: none;
+	margin:0;
+	padding: 0;
+}
+.btn:focus,
+.btn:active,
+button,
+input:focus,
+*:focus {
+	outline: none !important;
+}
+.bg-cover{
+	@include bg-cover;
+}
+.heightCustom {
+	height: 100vh;
+		@media #{$max-991} {
+			height:auto;
+			padding-top:2em;
+			padding-bottom:2em;
+		}
+}
+.btn-custom, .btn-outline-main-color {
+	color: $light;
+	-webkit-appearance: inherit;
+	background-color: $customTheme;
+	border-color: $customTheme;
+}
+a {
+	color:#4c4c4c;
+}
+a,
+a:hover,
+.btn-custom:hover,
+.btn-outline-main-color:hover {
+	font-weight: 300;
+	text-decoration: none;
+    -webkit-appearance: none!important;
+}
+textarea:hover,
+input[type=text]:hover,
+input[type=email]:hover,
+textarea:focus,
+input[type=text]:focus,
+input[type=email]:focus{
+	box-shadow: none!important;
+}
+
+// global
+
+h1 {
+	@media #{max-577} {
+		font-size: 1.5em;
+	}
+}
+
+.animated,
+.customPopOver {
+	position: relative;
+}
+.home .animated {
+	overflow: hidden;
+}
+.animated:after,
+.masque:before {
+	@include pseudoEl;
+	height: 100%;
+	width: 100%;
+}
+.animated:after {
+	@include pseudoEl;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	background: #114887;
+	left:0;
+	transition: all 1000ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.animated.animTop:after {
+	top:0;
+}
+.animated.animBottom:after {
+	bottom:0;
+}
+.animated.started:after {
+		height: 0;
+}
+
+
+.custom-control-input {
+    opacity: 0!important;
+}
+.navbar-light .navbar-toggler {
+	color: rgba(255,255,255,.8);
+	border-color: rgba(255,255,255,0);
+}
+.masque:before {
+	z-index: 0;
+	transition: .5s ease-out;
+	top:0;
+	left:0;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+.form-control {
+	background: transparent;
+	border-radius: 0;
+	border: none;
+	transition: .2s ease;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+
+	&:focus,&:hover {
+		box-shadow: none;
+	}
+}
+.fullBrand {
+	color: #929292;
+
+	.logo {
+	    height: 40px;
+	    width: 40px;
+	    font-size: .5em;
+	    background-color: #d0d0d0;
+
+		@media #{$max-577} {
+			height:50px;
+			width: 50px;
+			padding: .5em;
+		}
+	}
+	ul {
+		line-height: 1em;
+	}
+}
+.profilUser{
+    @include userIcon;
+}
+.tooltip {
+	opacity:1;
+}
+.champPassword {
+	display:flex;
+	align-items:center;
+	input {
+		flex:1;
+	}
+	span {
+		color:rgba(0,0,0,.5);
+		cursor:pointer;
+		transition:ease 0.3s;
+		&:hover {
+			color:rgba(0,0,0,1);
+		}
+	}
+}
+// index
+
+.home {
+	.fullBrand {
+		position: absolute;
+		left:0;
+		right: 0;
+		margin:auto;
+		bottom:1em;
+	}
+	footer {
+		display:none;
+	}
+}
+.not-home{
+	@media #{$max-991} {
+		padding-top: 80px!important;
+	}
+	@media #{$min-992} {
+ 		padding-left:84px;
+	}
+}
+.close {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    padding:0!important;
+    border-radius:1px solid #f1f1f1;
+    background: #fff!important;
+    transition: all 1000ms cubic-bezier(0.23, 1, 0.32, 1);
+
+	&:hover {
+	    transform: rotate(270deg);
+	}
+}
+
+.customScrollTab {
+    height: 35vh;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+.customTab {
+	border-bottom:none;
+
+	li {
+		a {
+		    border-bottom: 1px solid #ccc;
+		    transition: all 0.3s ease-in-out;
+		    display: block;
+		    cursor: pointer;
+		    padding: 1em;
+		    text-decoration: none !important;
+		    text-transform: uppercase;
+		    color: #ccc;
+
+		    &.active,
+		    &:hover {
+			    color: #ff9800;
+			    border-bottom: 2px solid #ff9800;
+		    }
+		}
+	}
+}
+
+.modal-xxl .modal-lg,
+.modal-lg.modal-xxl  {
+	@media #{$min-1200} {
+	    width: 90%;
+	    max-width: 1280px;
+	}
+}
+.scrollableBlock {
+	@media #{$min-992} {
+		height: 100vh;
+		overflow: hidden;
+		overflow-y: auto;
+	}
+}
+.scrollableTab {
+	height:100px;
+	overflow: hidden;
+	overflow-y: auto;
+	&.customScrollTab {
+	    height: 35vh;
+	}
+}
+.zIndex {
+  position: relative;
+  z-index: 1;
+}
+
+// cards contractuels
+
+.col-lg-9.rwdColumn {
+  .col-xl-4 {
+    @media (max-width: 1700px) and (min-width: 992px) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+}
+
+@import '_sidebar.scss'; // affichage Menu de navigation
+@import '_footer.scss';
+@import '_sub-footer.scss';
+@import '_accordion.scss'; // affichage des collapses page Liste recherche
+@import '_style-custom.scss';
+//@import '_decoration.scss';
+@import '_mainSidebar.scss'; // affichage Zone de recherches page Liste recherche
+@import '_customCard.scss';
+@import '_bouton-switch.scss';
+@import '_toast.scss';
+@import '_btn-grp.scss';
+@import '_customModal.scss';

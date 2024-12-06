@@ -1,0 +1,140 @@
+.mainSidebar {
+  top: 0;
+  padding:2rem;
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  //background: linear-gradient(157deg,rgb(122 145 249) 0%, rgb(122 145 249) 30%, rgb(255, 255, 255) 30%, rgb(255, 255, 255) 100%) center bottom 0px no-repeat;
+	overflow: inherit;
+  box-shadow: $box-shadow;
+
+  @media #{$min-992} {
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+      padding:4rem 2rem;
+      .h3, h3 {
+          font-size: 1.75rem;
+      }
+  }
+  .d-flex.h-100 {
+    flex-direction: column;
+    justify-content: space-between;
+    @include transition3;
+    transform: translateX(0);
+    transition-delay: 0.2s;
+  }
+	.btn-group {
+    position: static !important;
+      // Gestion du DROPDOWN Filtres
+    .stopPropa {
+      padding:0.5rem;
+      width: 90%;
+      @media #{$min-992} {
+        min-width: 32.5rem;
+        padding:2rem 3rem;
+      }
+      .customSearch {
+        margin-top:1rem;
+        margin-bottom:1rem;
+        background-color: #f1f1f1;
+        margin-bottom: 1rem;
+        border-radius: 10rem;
+        .form-control {
+          border-radius: 10rem 0 0 10rem;
+          border:none;
+          &:focus {
+              color: #1e2022;
+              background-color: transparent;
+              border-color: rgba(140,152,164,.25);
+              outline: 0;
+              box-shadow: 0 0 1rem 0 rgb(140 152 164 / 25%)!important;
+          }
+        }
+      }
+      .responsiveTab.scrollableTab {
+        @media #{$min-992} {
+          max-height: 25vh;
+          padding-top:1rem;
+        }
+      }
+    }
+  }
+}
+
+.filter-zone {
+  padding-bottom: 1rem;
+  padding-bottom: 4.5rem;
+    @media #{$min-992} {
+      padding-top: 1rem;
+    }
+}
+@media #{$min-992} {
+  .megamenu {
+      width: 43rem;
+  }
+}
+.largeSearch {
+	border-radius:10rem;
+	background-color: $customBtn;
+  ::placeholder,.btn,.form-control {
+    color: #fff;
+  }
+	input {
+		border-radius:10rem 0 0 10rem;
+		background-color: $customBtn;
+		padding:2rem;
+		border:none;
+		color: #fff;
+    width:calc(100% - 3.7rem)!important;
+    &:hover,&:focus {
+      background-color: $customBtn;
+    }
+	}
+	button {
+		background-color:rgba(0,0,0,.2);
+		border-radius: 50%;
+		height: 3rem;
+		width: 3rem;
+		color: #fff;
+	}
+}
+
+// TOGGLE Liste
+
+.toggleBtn,.toggleBtn span, .scrollableBlock {
+  @include transition3;
+}
+// gesion du
+// toggle de la zone
+.parentMainSidebar {
+  .rwdColumn {
+    .toggleBtn {
+      @include transition3;
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+  }
+  // au click ->
+  &.reduit {
+    @media #{$min-992} {
+      .toggleZone  {
+        flex: 0 0 0;
+        max-width: 0;
+        padding:0;
+        .d-flex.h-100 {
+          @include transition3;
+          opacity: 0!important;
+          transform: translateX(-100%)!important;
+        }
+      }
+    }
+    .rwdColumn {
+      .toggleBtn {
+        @include transition3;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  } // .reduit
+} // parentMainSidebar
